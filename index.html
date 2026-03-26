@@ -1,148 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TechCo Premium</title>
-
-<style>
-body {
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  scroll-behavior: smooth;
-}
-
-/* HEADER */
-header {
-  position: fixed;
-  width: 100%;
-  top: 0;
-  display: flex;
-  justify-content: space-between;
-  padding: 15px 40px;
-  background: rgba(0,0,0,0.7);
-  backdrop-filter: blur(10px);
-  color: white;
-  z-index: 1000;
-}
-
-nav a {
-  color: white;
-  margin: 10px;
-  text-decoration: none;
-  transition: 0.3s;
-}
-
-nav a:hover {
-  color: #00c6ff;
-}
-
-/* HERO */
-.hero {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background: linear-gradient(135deg, #00c6ff, #0072ff);
-  color: white;
-  text-align: center;
-}
-
-.hero h1 {
-  font-size: 3rem;
-}
-
-/* BUTTON */
-button {
-  padding: 12px 25px;
-  border-radius: 25px;
-  border: none;
-  background: black;
-  color: white;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-button:hover {
-  background: white;
-  color: black;
-  transform: scale(1.1);
-}
-
-/* SERVICES */
-.services {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  padding: 80px 20px;
-}
-
-.card {
-  background: white;
-  border-radius: 15px;
-  padding: 25px;
-  margin: 15px;
-  width: 220px;
-  text-align: center;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-  transition: 0.4s;
-  opacity: 0;
-  transform: translateY(50px);
-}
-
-.card:hover {
-  transform: translateY(-10px) scale(1.05);
-}
-
-/* ABOUT */
-.about {
-  text-align: center;
-  padding: 80px 20px;
-  background: #f5f5f5;
-}
-
-/* CONTACT */
-.contact {
-  text-align: center;
-  padding: 80px 20px;
-}
-
-input, textarea {
-  width: 80%;
-  padding: 10px;
-  margin: 10px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-}
-
-/* FOOTER */
-footer {
-  background: black;
-  color: white;
-  text-align: center;
-  padding: 15px;
-}
-
-/* DARK MODE */
-.dark {
-  background: #111;
-  color: white;
-}
-
-.dark .card {
-  background: #1e1e1e;
-  color: white;
-}
-
-/* RESPONSIVE */
-@media(max-width: 600px) {
-  header {
-    flex-direction: column;
-    text-align: center;
-  }
-}
-</style>
+<title>TechCo</title>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -150,75 +10,23 @@ footer {
 <header>
   <h2>TechCo</h2>
   <nav>
-    <a href="#">Home</a>
-    <a href="#about">About</a>
-    <a href="#services">Services</a>
-    <a href="#contact">Contact</a>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="contact.html">Contact</a>
   </nav>
-  <button onclick="toggleDark()">🌙</button>
 </header>
 
 <section class="hero">
   <h1 id="typing"></h1>
-  <p>We build premium digital experiences</p>
-  <button>Start Your Project</button>
-</section>
-
-<section class="services" id="services">
-  <div class="card">🚀 Web Development</div>
-  <div class="card">📱 App Development</div>
-  <div class="card">🎨 UI/UX Design</div>
-</section>
-
-<section class="about" id="about">
-  <h2>About Us</h2>
-  <p>We craft modern, high-performance digital products that help businesses grow fast.</p>
-</section>
-
-<section class="contact" id="contact">
-  <h2>Contact Us</h2>
-  <input placeholder="Your Name"><br>
-  <input placeholder="Your Email"><br>
-  <textarea placeholder="Your Message"></textarea><br>
-  <button>Send Message</button>
+  <p>Premium Digital Experiences</p>
+  <button class="btn" onclick="startProject()">Start Your Project</button>
 </section>
 
 <footer>
-  <p>© 2026 TechCo | Premium Experience</p>
+  <p>© 2026 TechCo</p>
 </footer>
 
-<script>
-/* TYPING EFFECT */
-const text = "Innovative Tech Solutions";
-let i = 0;
-
-function type() {
-  if (i < text.length) {
-    document.getElementById("typing").innerHTML += text.charAt(i);
-    i++;
-    setTimeout(type, 50);
-  }
-}
-type();
-
-/* SCROLL ANIMATION */
-const cards = document.querySelectorAll('.card');
-
-window.addEventListener('scroll', () => {
-  cards.forEach(card => {
-    const top = card.getBoundingClientRect().top;
-    if (top < window.innerHeight - 50) {
-      card.style.opacity = "1";
-      card.style.transform = "translateY(0)";
-    }
-  });
-});
-
-/* DARK MODE */
-function toggleDark() {
-  document.body.classList.toggle('dark');
-}
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
